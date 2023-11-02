@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  cdn:
+    container_name: cdn
+    image: alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    ports:
+      - "80:80"
+      - "443:443"
+    command: sh run.sh
